@@ -7,7 +7,11 @@ export async function GET(req: Request) {
     if (!username) {
         return NextResponse.json({ error: 'Username is required' }, { status: 400 });
     }
-    const res = await fetch(`https://api.github.com/users/${username}`);
+    const res = await fetch(`https://api.github.com/users/${username}`, {
+        headers: {
+            'User-Agent': 'github-user-details-app'
+        },
+    });
     // console.log('res', res);
     const data = await res.json();
     // console.log('data', data);
