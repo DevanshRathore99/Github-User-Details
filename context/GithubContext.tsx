@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, createContext } from 'react';
 import mockUser from './mockData/mockUser';
 import mockRepos from './mockData/mockRepos';
