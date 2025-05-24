@@ -18,5 +18,5 @@ export function middleware(req: NextRequest) {
 
 // Apply middleware only to protected routes
 export const config = {
-    matcher: ['/users/:path*'], // protected routes here
+    matcher: ['/users/:path*','/api/github/:path*'], // protected routes here
 };
