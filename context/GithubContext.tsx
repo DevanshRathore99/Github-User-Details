@@ -39,6 +39,7 @@ const GithubProvider = ({ children }: { children: React.ReactNode }) => {
 
         try {
             const userResponse = await fetch(`/api/github?user=${user}`);
+            console.log('userResponse', userResponse);
             if (!userResponse.ok) {
                 throw new Error('User not found');
             }
