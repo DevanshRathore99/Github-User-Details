@@ -13,7 +13,7 @@ export async function GET(req: Request) {
     // console.log('data', data);
 
     if (!res.ok) {
-        return NextResponse.json({ error: 'User not found' }, { status: 404 });
+        return NextResponse.json({ error: res.statusText }, { status: res.status });
     }
 
     return NextResponse.json(data);
