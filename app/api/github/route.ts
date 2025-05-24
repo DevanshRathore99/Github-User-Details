@@ -2,15 +2,15 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
-    console.log('searchParams', searchParams);
+    // console.log('searchParams', searchParams);
     const username = searchParams.get('user');
     if (!username) {
         return NextResponse.json({ error: 'Username is required' }, { status: 400 });
     }
     const res = await fetch(`https://api.github.com/users/${username}`);
-    console.log('res', res);
+    // console.log('res', res);
     const data = await res.json();
-    console.log('data', data);
+    // console.log('data', data);
 
     if (!res.ok) {
         return NextResponse.json({ error: 'User not found' }, { status: 404 });
