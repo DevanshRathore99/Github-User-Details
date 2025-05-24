@@ -9,6 +9,7 @@ export async function GET(req: Request) {
     }
     const res = await fetch(`https://api.github.com/users/${username}`, {
         headers: {
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, // use token
             'User-Agent': 'github-user-details-app'
         },
     });
