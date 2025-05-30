@@ -121,13 +121,13 @@ export default function GitHubProfile() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="text-muted-foreground">Requests: {requests} / 60</div>
+            {/* <div className="text-muted-foreground">Requests: {requests} / 60</div> */}
             <ModeToggle />
             <UserAvatar />
           </div>
         </div>
       </header>
-      {isLoading ? (<div className="w-screen h-[90vh] flex items-center justify-center"><BarLoader  color={loaderColor} speedMultiplier={2} /></div>) :
+      {isLoading ? (<div className="w-screen h-[90vh] flex items-center justify-center"><BarLoader color={loaderColor} speedMultiplier={2} /></div>) :
         <main className="container px-4 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Profile Sidebar */}

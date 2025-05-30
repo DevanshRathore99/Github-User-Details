@@ -26,7 +26,7 @@ export function UserAvatar() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Avatar>
+                <Avatar className="cursor-pointer">
                     <AvatarImage src={userData?.avatarUrl
                         || "https://github.com/shadcn.png"} alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>
@@ -36,7 +36,7 @@ export function UserAvatar() {
                 <DropdownMenuLabel>{userData?.email || 'My Account'}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => signOut()}>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => signOut()}>
                     <LogOut />
                     <span >Log out</span>
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

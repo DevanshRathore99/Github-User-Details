@@ -23,7 +23,7 @@ export default function RootLayout({
         <SessionProvider>
           <GithubProvider>
             <UserProvider>
-              <ThemeProvider attribute="class" defaultTheme="dark">
+              <ThemeProvider attribute="class" defaultTheme="light">
               {children}
               </ThemeProvider>
             </UserProvider>
