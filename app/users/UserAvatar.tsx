@@ -22,6 +22,9 @@ import { useUserContext } from "@/context/UserContext";
 
 export function UserAvatar() {
     const { userData } = useUserContext();
+    const handleLogout = () => {
+        signOut({ callbackUrl: "/login" }); // redirect after logout
+    };
     // console.log(userData, ' UUUUUUUUUUUUUUUUUUU');
     return (
         <DropdownMenu>
@@ -36,7 +39,7 @@ export function UserAvatar() {
                 <DropdownMenuLabel>{userData?.email || 'My Account'}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer" onClick={() => signOut()}>
+                <DropdownMenuItem className="cursor-pointer" onClick={handleLogout}>
                     <LogOut />
                     <span >Log out</span>
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

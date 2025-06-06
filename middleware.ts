@@ -1,22 +1,14 @@
-import { NextResponse, NextRequest } from 'next/server';
+import { withAuth } from "next-auth/middleware";
 
-export function middleware(req: NextRequest) {
-    // Get cookie, fallback for different envs
-    const token = req.cookies.get('next-auth.session-token') || req.cookies.get('__Secure-next-auth.session-token');
+export default withAuth({
+  pages: {
+    signIn: '/login',  // redirect unauthenticated users here
+  },
+  callbacks: {
+    authorized: ({ token }) => !!token,
+  },
+});
 
-    // If no token, redirect to login
-    if (!token) {
-        const loginUrl = new URL('/login', req.url);
-        return NextResponse.redirect(loginUrl);
-    }
-
-    // TODO: Optionally verify token here (see step 3)
-
-    // Allow request to continue if token exists
-    return NextResponse.next();
-}
-
-// Apply middleware only to protected routes
 export const config = {
-    matcher: ['/users/:path*','/api/github/:path*'], // protected routes here
+  matcher: ['/users/:path*', '/api/github/:path*'], // protected routes here
 };
